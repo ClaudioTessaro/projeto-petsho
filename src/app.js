@@ -1,15 +1,13 @@
 import "dotenv/config";
-
 import cors from "cors";
 import express from "express";
-
-import "express-async-error";
 import routes from "./routes";
+
+import "./database";
 
 class App {
     constructor() {
         this.server = express();
-
         this.middlewares();
         this.routes();
     }
@@ -17,6 +15,7 @@ class App {
     middlewares() {
         this.server.use(cors());
         this.server.use(express.json());
+        this.server.use(express.urlencoded({ extended: false }));
     }
 
     routes() {
