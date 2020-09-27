@@ -8,11 +8,8 @@ class Database {
     mongo() {
         this.mongoConnection = mongoose.connect(
             process.env.MONGO_URL,
-            { dbName: "test" },
-            {
-                useNewUrlParser: true,
-                useFindAndModify: true,
-            }
+
+            { dbName: "test", useNewUrlParser: true, useFindAndModify: true }
         );
     }
 }
