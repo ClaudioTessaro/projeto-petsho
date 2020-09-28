@@ -9,7 +9,11 @@ class Database {
         this.mongoConnection = mongoose.connect(
             process.env.MONGO_URL,
 
-            { dbName: "test", useNewUrlParser: true, useFindAndModify: true }
+            {
+                dbName: "test?retryWrites=true&w=majority",
+                useNewUrlParser: true,
+                useFindAndModify: true,
+            }
         );
     }
 }
