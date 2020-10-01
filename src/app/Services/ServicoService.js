@@ -18,7 +18,8 @@ class ServicoService {
     }
 
     async findById(req, res) {
-        const servico = await Servicos.findById(req.params.id);
+        const { id } = req.params;
+        const servico = await Servicos.find({ cliente: id });
         return res.status(200).json(servico);
     }
 
