@@ -21,6 +21,7 @@ const UsuarioSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
+// eslint-disable-next-line func-names
 UsuarioSchema.pre("save", async function(next) {
     const hash = await bcrypt.hash(this.password, 10);
     this.password = hash;

@@ -18,7 +18,7 @@ routes.get("/cliente/:id", ClienteController.findById);
 routes.delete("/cliente/:id", ClienteController.delete);
 routes.get("/cliente", ClienteController.findAll);
 
-routes.post("/produto", ProdutoController.salvar);
+routes.post("/produto/:id", ProdutoController.salvar);
 routes.get("/produto/:id", ProdutoController.findById);
 routes.delete("/produto/:id", ProdutoController.delete);
 routes.get("/produto", ProdutoController.findAll);

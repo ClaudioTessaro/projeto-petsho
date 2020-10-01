@@ -18,6 +18,7 @@ const ClienteSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        pet: { type: String, required: true },
         status: {
             type: String,
             required: true,

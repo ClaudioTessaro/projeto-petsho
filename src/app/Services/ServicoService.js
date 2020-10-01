@@ -1,8 +1,17 @@
 import Servicos from "../schemas/ServicoSchema";
+import Clientes from "../schemas/Clientes";
 
 class ServicoService {
     async save(req, res) {
-        const servico = await Servicos.create(req.body);
+        const { pet, descricao, preco, tipo } = req.body;
+        const { id } = await Clientes.findOne({ pet });
+        const cliente = id;
+        const servico = await Servicos.create({
+            descricao,
+            preco,
+            tipo,
+            cliente,
+        });
         return res
             .status(200)
             .json(`Tipo ${servico.tipo} de serviço inserido com sucesso!`);
